@@ -279,59 +279,55 @@ bool writeBitmap(const char *filename, const Buffer buf) {
     return true;
 }
 
+// void drawLetterA(Buffer *canvas, Color c, Vec2<i32> pos, Vec2<i32> size) {
+//     u8 letter_a_alpha[] = {
+//         0, 1, 1, 1, 0,
+//         1, 0, 0, 0, 1,
+//         1, 0, 0, 0, 1,
+//         1, 0, 0, 0, 1,
+//         1, 1, 1, 1, 1,
+//         1, 0, 0, 0, 1,
+//         1, 0, 0, 0, 1,
+//         1, 0, 0, 0, 1,
+//     };
 
-void drawLetterA(Buffer *canvas, Color c, Vec2<i32> pos, Vec2<i32> size) {
-    u8 letter_a_alpha[] = {
-        0, 1, 1, 1, 0,
-        1, 0, 0, 0, 1,
-        1, 0, 0, 0, 1,
-        1, 0, 0, 0, 1,
-        1, 1, 1, 1, 1,
-        1, 0, 0, 0, 1,
-        1, 0, 0, 0, 1,
-        1, 0, 0, 0, 1,
-    };
+//     Buffer *ref = initBuffer(5, 8);
+//     for (i32 i = 0; i < 5*8; ++i) {
+//         if (letter_a_alpha[i] == 1) {
+//             ref->data[i] = getColorHex(c);
+//         } else {
+//             ref->data[i] = 0;
+//         }
+//     }
 
-    Buffer *ref = initBuffer(5, 8);
-    for (i32 i = 0; i < 5*8; ++i) {
-        if (letter_a_alpha[i] == 1) {
-            ref->data[i] = getColorHex(c);
-        } else {
-            ref->data[i] = 0;
-        }
-    }
+//     std::cout << "here\n";
+//     //zoomBufferInterpolate(ref,);
 
-    std::cout << "here\n";
-    //zoomBufferInterpolate(ref,);
+//     for (i32 x = pos.x; x < pos.x + size.x; ++x) {
+//         for (i32 y = pos.y; y < pos.y + size.y; ++y) {
+//             // (x, y), x in 0 .. width, y in 0... height
+//             // (x, y)  k = x / (width / 5)
+//             // y = k
+//             i32 scaled_x = x / ((size.x - pos.x) / 5);
+//             i32 scaled_y = y / ((size.y - pos.y) / 8);
+//             u32 hex = ref->data[scaled_y * 8 + scaled_x];
+//             if (hex) canvas->data[y * canvas->width + x] = getColorHex(c);
+//         }
+//     }
 
-    for (i32 x = pos.x; x < pos.x + size.x; ++x) {
-        for (i32 y = pos.y; y < pos.y + size.y; ++y) {
-            // (x, y), x in 0 .. width, y in 0... height
-            // (x, y)  k = x / (width / 5)
-            // y = k
-            i32 scaled_x = x / ((size.x - pos.x) / 5);
-            i32 scaled_y = y / ((size.y - pos.y) / 8);
-            u32 hex = ref->data[scaled_y * 8 + scaled_x];
-            if (hex) canvas->data[y * canvas->width + x] = getColorHex(c);
-        }
-    }
+//     freeBuffer(ref);
+// }
 
-    freeBuffer(ref);
-}
-
-u8 letterB[] = {
-    1, 1, 1, 1, 0,
-    1, 0, 0, 0, 1,
-    1, 0, 0, 0, 1,
-    1, 1, 1, 1, 0,
-    1, 0, 0, 0, 1,
-    1, 0, 0, 0, 1,
-    1, 0, 0, 0, 1,
-    1, 1, 1, 1, 1,
-};
-
-
-
+// u8 letterB[] = {
+//     1, 1, 1, 1, 0,
+//     1, 0, 0, 0, 1,
+//     1, 0, 0, 0, 1,
+//     1, 1, 1, 1, 0,
+//     1, 0, 0, 0, 1,
+//     1, 0, 0, 0, 1,
+//     1, 0, 0, 0, 1,
+//     1, 1, 1, 1, 1,
+// };
 
 int main() {
     //generatePaletteMonochrome(0.8);
